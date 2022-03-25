@@ -1,27 +1,44 @@
 /* eslint-disable */
+import { defaultModifiers } from "@popperjs/core/lib/popper-lite";
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
 window.onload = () => {
   //write your code here
-  document.querySelector("#btn").addEventListener("click", () => {
-    document.querySelector("#name").innerHTML = domaingenerator();
+  document.getElementById("btn").addEventListener("click", () => {
+    document.getElementById("name").innerHTML = domaingenerator();
   });
   console.log("Hello Rigo from the console!");
 };
 
 var domaingenerator = () => {
-  var pron = ["the", "our", "one", "some", "A"];
-  var adj = ["big", "great", "strong", "amazing", "lucky", "hateful"];
-  var noun = ["guy", "beast", "bird", "racoon", "fish", "dwarf", "daddy"];
+  let pron = ["the", "our", "one", "some", "A"];
+  let adj = ["big", "great", "strong", "amazing", "lucky", "hateful"];
+  let noun = ["sim", "beast", "bird", "racoon", "condicion", "dwarf", "daddy"];
+  let ext = ["com", "es", "io", "net"];
 
-  var indexpron = Math.floor(Math.random() * pron.length);
-  var indexadj = Math.floor(Math.random() * adj.length);
-  var indexnoun = Math.floor(Math.random() * noun.length);
+  let ranPron = Math.floor(Math.random() * pron.length);
+  let ranAdj = Math.floor(Math.random() * adj.length);
+  let ranNoun = Math.floor(Math.random() * noun.length);
+  let ranExt = Math.floor(Math.random() * ext.length);
 
-  let domName = pron[indexpron] + adj[indexadj] + noun[indexnoun];
-  return domName;
+  let dominio = pron[ranPron] + adj[ranAdj] + noun[ranNoun];
+  console.log(dominio);
+
+  let final;
+
+  for (let i = 0; i < dominio.length; i++) {
+    if (dominio.length - 1 == "n") {
+      final = dominio + ".es";
+    } else if (dominio.length - 1 == "m") {
+      final = dominio + ".io";
+    } else {
+      URL;
+    }
+  }
+
+  let URL = dominio + "." + ext[ranExt];
+  return URL;
 };
+
+console.log(domaingenerator);
